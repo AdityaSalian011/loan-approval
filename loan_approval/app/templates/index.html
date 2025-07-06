@@ -1,0 +1,238 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D3748',
+                        secondary: '#4A5568',
+                        accent: '#4299E1',
+                        dark: '#1A202C',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-950 text-white font-sans">
+    <!-- navbar starts here -->
+    <nav class="w-full h-16 flex items-center justify-between bg-primary px-4 md:px-8 sticky top-0 z-50 shadow-lg">
+        <div class="text-xl md:text-2xl font-bold tracking-wide">
+            <i class="fas fa-hand-holding-usd mr-2 text-accent"></i>LoanApproval
+        </div>
+        <ul class="md:flex hidden items-center space-x-6">
+            <li class="hover:text-accent transition cursor-pointer">Home</li>
+            <li class="hover:text-accent transition cursor-pointer">About</li>
+            <li class="hover:text-accent transition cursor-pointer">Contact Us</li>
+        </ul>
+        <div
+            class="hidden md:block text-lg font-semibold tracking-wide px-4 py-2 rounded-lg bg-accent hover:bg-blue-500 transition cursor-pointer">
+            Log In</div>
+        <div class="md:hidden text-3xl">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <!-- navbar ends here -->
+
+    <!-- Hero section with form overlay -->
+    <div class="relative w-full min-h-screen">
+        <div class="absolute inset-0 bg-cover bg-center opacity-40"
+            style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80')">
+        </div>
+
+        <!-- dark overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900"></div>
+
+        <!-- content container -->
+        <div
+            class="relative z-10 max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start justify-between">
+            <!-- text content -->
+            <div class="w-full lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Secure Your Future With <span
+                        class="text-accent">Smart Financing</span></h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-6">Get pre-approved for a loan in minutes with
+                    our streamlined process. Competitive rates and flexible terms tailored to your needs.</p>
+                <div
+                    class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start">
+                    <button
+                        class="px-8 py-3 bg-accent hover:bg-blue-500 rounded-lg font-semibold text-lg transition">Learn
+                        More</button>
+                    <button
+                        class="px-8 py-3 bg-secondary hover:bg-gray-600 rounded-lg font-semibold text-lg transition">
+                        <i class="fas fa-phone mr-2"></i>Contact Us
+                    </button>
+                </div>
+
+                <!-- feature content -->
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-4 bg-slate-800/50 rounded-lg">
+                        <i class="fas fa-percent text-3xl text-accent mb-2"></i>
+                        <p class="font-semibold">Low Rates</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800/50 rounded-lg">
+                        <i class="fas fa-bolt text-3xl text-accent mb-2"></i>
+                        <p class="font-semibold">Quick Approval</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800/50 rounded-lg">
+                        <i class="fas fa-shield-alt text-3xl text-accent mb-2"></i>
+                        <p class="font-semibold">Secure</p>
+                    </div>
+                    <div class="text-center p-4 bg-slate-800/50 rounded-lg">
+                        <i class="fas fa-headset text-3xl text-accent mb-2"></i>
+                        <p class="font-semibold">24/7 Support</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Form container -->
+            <div class="w-full lg:w-2/5">
+                <div class="bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-2xl border border-slate-700 p-6 md:p-8">
+                    <div class="text-center mb-6">
+                        <h2 class="text-2xl font-bold mb-2">Loan Application</h2>
+                        <p class="text-gray-400">Fill out the form to get started</p>
+                    </div>
+                    <form id="form-id" class="space-y-5" method="POST">
+                        {% csrf_token %}
+                        <div>
+                            <label class="block text-gray-300 mb-2">Full Name</label>
+                            {{ form.name|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"autocomplete:off"|attr:"placeholder:Aditya Salian" }}
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Education Level</label>
+                            {{ form.education|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent" }}
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Employement Status</label>
+                            {{ form.emplyement_status|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent" }}
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">No. of Dependents</label>
+                            {{ form.dependents|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:0"|attr:"max:5" }}
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Annual Income</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">₹</span>
+                                {{ form.income|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:200000"|attr:"max:9900000" }}
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Credit Score</label>
+                            {{ form.credit_score|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:300"|attr:"max:900" }}
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Desired Loan Amount</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">₹</span>
+                                {{ form.loan_amount|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:300000"|attr:"max:39500000" }}
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Loan Term</label>
+                            {{ form.loan_term|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:2"|attr:"max:20" }}
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Residential Assets Value</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">₹</span>
+                                {{ form.resident_asset|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:0"|attr:"max:29100000" }}
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Commercial Assets Value</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">₹</span>
+                                {{ form.commercial_asset|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:0"|attr:"max:19400000" }}
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Luxury Assets Value</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">₹</span>
+                                {{ form.luxury_asset|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:300000"|attr:"max:39200000" }}
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Bank Assets Value</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">₹</span>
+                                {{ form.bank_asset|add_class:"w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2  focus:ring-accent"|attr:"min:0"|attr:"max:14700000" }}
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" name="terms_agreed" class="mt-1 mr-2">
+                            <label class="text-gray-300 text-sm">I agree to the <a href="#" class="text-accent hover:underline">terms and conditions</a> and authorize the company to contact me regarding loan services.</label>
+                        </div>
+                        <button type="submit" class="w-full bg-accent hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition">Submit Application</button>
+                    </form>
+                    <div class="mt-6 text-center text-sm text-gray-400">
+                        <p>Your information is secure and will not be shared.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-slate-900 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Loan Approval</h3>
+                    <p class="text-gray-400">Providing financial solutions since 2010. Trusted by thousands of satisfied customers.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Loan Calculator</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Loan Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Personal Loans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Home Loans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Business Loans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Auto Loans</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
+                            <span>Thane, Maharashtra 400608</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-accent mt-1 mr-3"></i>
+                            <span>+91 12 3456 7890</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
+                            <span>adityasalian865@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-6 text-center text-gray-500">
+                <p>&copy; 2023 LoanApproval. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'js/script.js' %}"></script>
+</html>

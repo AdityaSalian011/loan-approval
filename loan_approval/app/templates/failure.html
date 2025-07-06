@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D3748',
+                        secondary: '#4A5568',
+                        accent: '#4299E1',
+                        success: '#48BB78',
+                        danger: '#E53E3E',
+                        dark: '#1A202C',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-white font-sans min-h-screen flex flex-col">
+    <nav class="w-full h-16 bg-primary flex items-center justify-between shadow-2xl px-4 md:px-8 sticky top-0 z-50">
+        <div class="text-xl md:text-2xl font-bold tracking-wide">
+            <i class="fas fa-hand-holding-usd text-accent mr-2"></i>LoanApproval
+        </div>
+        <ul class="hidden md:flex items-center space-x-6">
+            <li class="font-semibold hover:text-accent cursor-pointer transition">Home</li>
+            <li class="font-semibold hover:text-accent cursor-pointer transition">About</li>
+            <li class="font-semibold hover:text-accent cursor-pointer transition">Contact Us</li>
+        </ul>
+        <div class="hidden md:block text-lg font-bold tracking-wide bg-accent py-2 px-4 rounded-lg hover:bg-blue-500 transition cursor-pointer">
+            Log In
+        </div>
+        <div class="md:hidden text-3xl">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="flex-grow">
+        <!-- Reject Page -->
+        <div id="danger-page" class="py-10 px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Card Container -->
+                <div class="rounded-2xl shadow-2xl border border-slate-700 overflow-hidden">
+                    <!-- Card Header -->
+                    <div class="bg-danger text-center py-8">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-times-circle text-danger text-6xl"></i>
+                        </div>
+                        <h1 class="text-4xl font-bold">Application Review Complete</h1>
+                        <p class="text-xl mt-2">We're unable to approve your application at this time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-slate-900 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Loan Approval</h3>
+                    <p class="text-gray-400">Providing financial solutions since 2010. Trusted by thousands of satisfied customers.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Loan Calculator</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Loan Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Personal Loans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Home Loans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Business Loans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Auto Loans</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
+                            <span>Thane, Maharashtra 400608</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-accent mt-1 mr-3"></i>
+                            <span>+91 12 3456 7890</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
+                            <span>adityasalian865@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-6 text-center text-gray-500">
+                <p>&copy; 2023 LoanApproval. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
